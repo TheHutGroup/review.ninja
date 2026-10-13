@@ -4,6 +4,7 @@ var async = require('async');
 var colors = require('colors');
 var express = require('express');
 var glob = require('glob');
+var helmet = require('helmet');
 var merge = require('merge');
 var passport = require('passport');
 var path = require('path');
@@ -22,6 +23,7 @@ var app = express();
 var api = {};
 var webhooks = {};
 
+app.use(helmet());
 app.use(require('x-frame-options')());
 app.use(require('body-parser').json());
 app.use(require('cookie-parser')());
